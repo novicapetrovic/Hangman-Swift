@@ -22,25 +22,20 @@ class SecretWordClass {
             
             var myDict : [Character : NSMutableArray] = [:]
             
+            var index = 0
+            
             for letter in film {
-                
-                var index = 0
                 
                 if myDict[letter] == nil {
                     myDict[letter] = [index]
                 } else {
                     myDict[letter]?.add(index)
                 }
-                
                 index += 1
             }
-            
             return myDict
-            
         }
-        
         indexDictionary = createDictionary(film: secretWord)
-        
     }
     
 }
