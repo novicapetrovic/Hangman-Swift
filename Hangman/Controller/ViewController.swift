@@ -8,14 +8,26 @@
 
 import UIKit
 import AVFoundation
-import SpriteKit
 
 class ViewController: UIViewController {
     
     var audioPlayer : AVAudioPlayer!
+    
+    lazy var backgroundMusic: AVAudioPlayer? = {
+        guard let soundURL = Bundle.main.url(forResource: "Saw SoundTrack", withExtension: "mp3") else {
+            return nil
+        }
+        do {
+            let player = try AVAudioPlayer(contentsOf: soundURL)
+            player.numberOfLoops = -1
+            return player
+        } catch {
+            return nil
+        }
+    }()
 
     let allFilms = FilmBankClass()
-    var randomIndex = Int(arc4random_uniform(UInt32(13)))   // Ideally 13 would be replaced with allFilms.count but that throws an error
+    var randomIndex = Int(arc4random_uniform(UInt32(13)))   // Ideally 13 would be replaced with allFilms.count but that throws an error for some reason
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +41,6 @@ class ViewController: UIViewController {
         guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
         
     }
-    
     
     @IBOutlet weak var keyboardOutlet: UIStackView!
     
@@ -88,6 +99,8 @@ class ViewController: UIViewController {
                 playSound(guessTrue: 2)
                 guessesLeftButton.text = "Guesses Left: 0"
                 hangmanImage.image = UIImage(named: imagesArray[0])
+                revealSecretWord()
+                
             } else {
                 playSound(guessTrue: 0)
                 guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
@@ -96,6 +109,24 @@ class ViewController: UIViewController {
         }
     }
 
+    func revealSecretWord() {
+        
+        var indexArray : [Int] = []
+        var count = 0
+        
+        for index in secretWordLabel.text! {
+            if index == "-" {
+                indexArray.append(count)
+                count += 1
+            } else {
+                count += 1
+            }
+        }
+
+        secretWordLabel.text = allFilms.listOfFilms[randomIndex].secretWord
+        
+    }
+    
     
     func replace(myString: String, _ index: Int, _ newChar: Character) -> String {
         var chars = Array(myString)     // gets an array of characters
@@ -119,28 +150,6 @@ class ViewController: UIViewController {
         
     }
     
-    func playBackgroundMusic() {
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print("Error, couldn't play background music")
-        }
-        
-        
-        let soundURL = Bundle.main.url(forResource: "Saw SoundTrack", withExtension: "mp3")
-        
-        do{
-            audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
-            audioPlayer.numberOfLoops = -1
-            audioPlayer.play()
-        }
-        catch {
-            
-        }
-    }
-    
     var soundArray = ["Creepy_Percussion_8", "Creepy-Roll-Over-2", "Jigsaw Laugh 2017"]
     
     func playSound(guessTrue: Int) {
@@ -156,15 +165,8 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    // ToDo:
-    func userSuccessfullyGuessedWord() {
-        
-    }
-    
-    // ToDo:
-    func userFailedToGuessWord() {
-        
+    func playBackgroundMusic() {
+        backgroundMusic?.play()
     }
     
     
