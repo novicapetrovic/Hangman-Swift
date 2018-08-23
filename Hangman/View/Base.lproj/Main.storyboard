@@ -32,11 +32,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GVM-e3-5YN">
-                                <rect key="frame" x="30" y="220" width="315" height="265.5"/>
+                                <rect key="frame" x="30" y="220" width="315" height="186"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="315" id="PFn-yW-EbJ"/>
-                                    <constraint firstAttribute="height" constant="265.5" id="VnO-Ki-soc"/>
+                                    <constraint firstAttribute="height" constant="186" id="ZaP-Oa-4hO"/>
+                                    <constraint firstAttribute="width" constant="315" id="zft-Cc-hC3"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guesses Left: 7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41w-jf-TBT">
@@ -358,6 +358,14 @@
                                     <constraint firstItem="bLw-Bu-8rE" firstAttribute="top" secondItem="c0h-XS-FVa" secondAttribute="bottom" constant="10" id="xPU-mN-d1h"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJg-Ea-HGc">
+                                <rect key="frame" x="134" y="422" width="123" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -385,6 +393,7 @@
                         <outlet property="hangmanImage" destination="GVM-e3-5YN" id="6Rm-Sl-onY"/>
                         <outlet property="keyboardOutlet" destination="edE-X7-SRP" id="Oc8-BQ-2ht"/>
                         <outlet property="secretWordLabel" destination="s7N-5V-0hq" id="TSc-dy-FnV"/>
+                        <outlet property="timeLabel" destination="wJg-Ea-HGc" id="75X-WU-feX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
