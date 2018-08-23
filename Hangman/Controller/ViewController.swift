@@ -11,24 +11,6 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
-    var audioPlayer : AVAudioPlayer!
-    
-    lazy var backgroundMusic: AVAudioPlayer? = {
-        guard let soundURL = Bundle.main.url(forResource: "Saw SoundTrack", withExtension: "mp3") else {
-            return nil
-        }
-        do {
-            let player = try AVAudioPlayer(contentsOf: soundURL)
-            player.numberOfLoops = -1
-            return player
-        } catch {
-            return nil
-        }
-    }()
-
-    let allFilms = FilmBankClass()
-    var randomIndex = Int(arc4random_uniform(UInt32(13)))   // Ideally 13 would be replaced with allFilms.count but that throws an error for some reason
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,8 +21,32 @@ class ViewController: UIViewController {
         secretWordLabel.text = firstFilmXXX
         print(firstFilm.secretWord)
         guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
         
     }
+    
+    var audioPlayer : AVAudioPlayer!
+    
+    var backgroundMusic: AVAudioPlayer? = {
+        guard let soundURL = Bundle.main.url(forResource: "The-Island-of-Dr-Sinister", withExtension: "mp3") else {
+            return nil
+        }
+        do {
+            let player = try AVAudioPlayer(contentsOf: soundURL)
+            player.numberOfLoops = -1
+            return player
+        } catch {
+            return nil
+        }
+    }()
+    
+    func playBackgroundMusic() {
+        backgroundMusic?.play()
+    }
+
+    let allFilms = FilmBankClass()
+    
+    var randomIndex = Int(arc4random_uniform(UInt32(13)))   // Ideally 13 would be replaced with allFilms.count but that throws an error for some reason
     
     @IBOutlet weak var keyboardOutlet: UIStackView!
     
@@ -79,43 +85,46 @@ class ViewController: UIViewController {
         let letterGuessed : Character = Character((sender.titleLabel?.text!)!)
         
         print(letterGuessed)
-        
-        if allFilms.listOfFilms[randomIndex].indexDictionary[letterGuessed] != nil {
-            lettersGuessedArray.append(sender.tag)
-            playSound(guessTrue: 1)
-            sender.backgroundColor = UIColor.blue
-            sender.isEnabled = false
-            print(allFilms.listOfFilms[randomIndex].indexDictionary[letterGuessed]!)
-            
-            for index in allFilms.listOfFilms[randomIndex].indexDictionary[letterGuessed]! {
-                secretWordLabel.text = replace(myString: secretWordLabel.text!, index as! Int, letterGuessed)
-            }
-            
-            if secretWordLabel.text == allFilms.listOfFilms[randomIndex].secretWord {
-                playSound(guessTrue: 3)
-                restartButton()
-                print("You Win!")
-            }
-            
-        } else {
-            guessesLeft -= 1
-            sender.backgroundColor = UIColor.red
-            sender.isEnabled = false
-            
-            if guessesLeft == 0 {
+    
+            if allFilms.listOfFilms[randomIndex].indexDictionary[letterGuessed] != nil {
+                lettersGuessedArray.append(sender.tag)
+                playSound(guessTrue: 1)
+                sender.backgroundColor = UIColor.black
+                sender.isEnabled = false
+                print(allFilms.listOfFilms[randomIndex].indexDictionary[letterGuessed]!)
                 
-                keyboardOutlet.isUserInteractionEnabled = false
-                print("You Lose!")
-                playSound(guessTrue: 2)
-                guessesLeftButton.text = "Guesses Left: 0"
-                hangmanImage.image = UIImage(named: imagesArray[0])
-                revealSecretWord()
+                for index in allFilms.listOfFilms[randomIndex].indexDictionary[letterGuessed]! {
+                    secretWordLabel.text = replace(myString: secretWordLabel.text!, index as! Int, letterGuessed)
+                }
+                
+                if secretWordLabel.text == allFilms.listOfFilms[randomIndex].secretWord {
+                    playSound(guessTrue: 3)
+                    restartButton()
+                    print("You Win!")
+                    print(lettersGuessedArray)
+                }
                 
             } else {
-                playSound(guessTrue: 0)
-                guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
-                hangmanImage.image = UIImage(named: imagesArray[guessesLeft])
-            }
+                guessesLeft -= 1
+                lettersGuessedArray.append(sender.tag)
+                sender.backgroundColor = UIColor.red
+                sender.isEnabled = false
+                
+                if guessesLeft == 0 {
+                    
+                    keyboardOutlet.isUserInteractionEnabled = false
+                    print("You Lose!")
+                    playSound(guessTrue: 2)
+                    guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
+                    hangmanImage.image = UIImage(named: imagesArray[guessesLeft])
+                    revealSecretWord()
+                    timer.invalidate()
+                    
+                } else {
+                    playSound(guessTrue: 0)
+                    guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
+                    hangmanImage.image = UIImage(named: imagesArray[guessesLeft])
+                }
         }
     }
 
@@ -132,9 +141,7 @@ class ViewController: UIViewController {
                 count += 1
             }
         }
-
         secretWordLabel.text = allFilms.listOfFilms[randomIndex].secretWord
-        
     }
     
     
@@ -147,13 +154,12 @@ class ViewController: UIViewController {
     
     func restartButton() {
         
-        
         //        ToDo:
         //        for tag in lettersGuessedArray {
         //            keyboardOutlet.tag.backgroundColor = UIColor.white
         //        }
         
-        time = 60
+        timeLeft = 5
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
         
         keyboardOutlet.isUserInteractionEnabled = true
@@ -185,25 +191,25 @@ class ViewController: UIViewController {
         }
     }
     
-    
     @IBAction func restartButtonClicked(_ sender: UIButton) {
-        
         restartButton()
-
     }
     
-    func playBackgroundMusic() {
-        backgroundMusic?.play()
-    }
-    
-    var time : Double = 60
-    
+    var timeLeft : Double = 5
     var timer = Timer()
     
     @objc func action() {
-        time -= 0.01
-        let roundedTime = Double(round(100*time)/100)
+        
+        timeLeft -= 0.01
+        let roundedTime = Double(round(100*timeLeft)/100)
         timeLabel.text = String(roundedTime)
+        
+        if timeLeft == Double(0.00) {
+            timer.invalidate()
+            timeLabel.text = "0"
+        }
+        
+        
     }
     
     

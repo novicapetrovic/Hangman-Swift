@@ -28,7 +28,6 @@ class FilmBankClass  {
         listOfFilms.append(SecretWordClass(film: "back to the future"))
         listOfFilms.append(SecretWordClass(film: "django unchained"))
         listOfFilms.append(SecretWordClass(film: "star wars"))
-        listOfFilms.append(SecretWordClass(film: "oceans eleven"))
         
     }
     
