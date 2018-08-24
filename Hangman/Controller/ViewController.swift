@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     var audioPlayer : AVAudioPlayer!
     
     var backgroundMusic: AVAudioPlayer? = {
-        guard let soundURL = Bundle.main.url(forResource: "The-Island-of-Dr-Sinister", withExtension: "mp3") else {
+        guard let soundURL = Bundle.main.url(forResource: "Trimmed Saw Soundtrack", withExtension: "mp3") else {
             return nil
         }
         do {
@@ -79,6 +79,7 @@ class ViewController: UIViewController {
     
     var lettersGuessedArray : [Int] = []
     
+    var winStreak : Int = 0
     
     @IBAction func letterPressed(_ sender: UIButton) {
         
@@ -101,6 +102,7 @@ class ViewController: UIViewController {
                     playSound(guessTrue: 3)
                     restartButton()
                     print("You Win!")
+                    winStreak += 1
                     print(lettersGuessedArray)
                 }
                 
@@ -114,6 +116,7 @@ class ViewController: UIViewController {
                     
                     keyboardOutlet.isUserInteractionEnabled = false
                     print("You Lose!")
+                    winStreak = 0
                     playSound(guessTrue: 2)
                     guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
                     hangmanImage.image = UIImage(named: imagesArray[guessesLeft])
@@ -159,7 +162,7 @@ class ViewController: UIViewController {
         //            keyboardOutlet.tag.backgroundColor = UIColor.white
         //        }
         
-        timeLeft = 5
+        timeLeft = 60
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
         
         keyboardOutlet.isUserInteractionEnabled = true
@@ -195,7 +198,7 @@ class ViewController: UIViewController {
         restartButton()
     }
     
-    var timeLeft : Double = 5
+    var timeLeft : Double = 60
     var timer = Timer()
     
     @objc func action() {
@@ -203,13 +206,12 @@ class ViewController: UIViewController {
         timeLeft -= 0.01
         let roundedTime = Double(round(100*timeLeft)/100)
         timeLabel.text = String(roundedTime)
+        print(roundedTime)
         
-        if timeLeft == Double(0.00) {
+        if roundedTime == 0 {
             timer.invalidate()
-            timeLabel.text = "0"
+            timeLabel.text = "0.00"
         }
-        
-        
     }
     
     
