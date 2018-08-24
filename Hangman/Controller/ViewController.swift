@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         secretWordLabel.text = firstFilmXXX
         print(firstFilm.secretWord)
         guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
+        winStreakLabel.text = "Streak: \(winStreak)"
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
         
     }
@@ -51,6 +52,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var keyboardOutlet: UIStackView!
     
     
+    @IBOutlet weak var winStreakLabel: UILabel!
+    
     @IBOutlet var alphabets: [UIButton]!
     
     @IBOutlet weak var secretWordLabel: UILabel!
@@ -80,8 +83,6 @@ class ViewController: UIViewController {
     
     let imagesArray = ["hangman0", "hangman1", "hangman2", "hangman3", "hangman4", "hangman5", "hangman6"]
     
-    var lettersGuessedArray : [Int] = []
-    
     var winStreak : Int = 0
     
     @IBAction func letterPressed(_ sender: UIButton) {
@@ -91,7 +92,6 @@ class ViewController: UIViewController {
         print(letterGuessed)
     
             if allFilms.listOfFilms[randomIndex].indexDictionary[letterGuessed] != nil {
-                lettersGuessedArray.append(sender.tag)
                 playSound(guessTrue: 1)
                 sender.backgroundColor = UIColor.black
                 sender.isEnabled = false
@@ -106,12 +106,11 @@ class ViewController: UIViewController {
                     restartButton()
                     print("You Win!")
                     winStreak += 1
-                    print(lettersGuessedArray)
+                    winStreakLabel.text = "Streak: \(winStreak)"
                 }
                 
             } else {
                 guessesLeft -= 1
-                lettersGuessedArray.append(sender.tag)
                 sender.backgroundColor = UIColor.red
                 sender.isEnabled = false
                 
@@ -125,7 +124,6 @@ class ViewController: UIViewController {
                     hangmanImage.image = UIImage(named: imagesArray[guessesLeft])
                     revealSecretWord()
                     timer.invalidate()
-                    
                 } else {
                     playSound(guessTrue: 0)
                     guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
@@ -160,17 +158,12 @@ class ViewController: UIViewController {
     
     func restartButton() {
         
-        //        ToDo:
-        //        for tag in lettersGuessedArray {
-        //            keyboardOutlet.tag.backgroundColor = UIColor.white
-        //        }\
-        
         for buttons in alphabets {
             buttons.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             buttons.isEnabled = true
         }
         
-        timeLeft = 60
+        timeLeft = Double(60 - (winStreak * 2))
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
         
         keyboardOutlet.isUserInteractionEnabled = true
@@ -182,8 +175,11 @@ class ViewController: UIViewController {
         print(firstFilm.secretWord)
         
         guessesLeft = 5
+        winStreak = 0
+        winStreakLabel.text = "Streak: \(winStreak)"
         guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
-        hangmanImage.image = #imageLiteral(resourceName: "hangmanwhite") // <- There's a white image there called "hangmanwhite" but it's very difficult to see.
+        hangmanImage.image = nil
+        hangmanImage.backgroundColor = UIColor.black
         
     }
     
@@ -206,7 +202,7 @@ class ViewController: UIViewController {
         restartButton()
     }
     
-    var timeLeft : Double = 5
+    var timeLeft : Double = 60
     var timer = Timer()
     
     @objc func action() {
@@ -214,7 +210,6 @@ class ViewController: UIViewController {
         timeLeft -= 0.01
         let roundedTime = Double(round(100*timeLeft)/100)
         timeLabel.text = String(roundedTime)
-        print(roundedTime)
         
         if roundedTime == 0.0 {
             timer.invalidate()
