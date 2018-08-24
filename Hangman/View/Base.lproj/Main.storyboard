@@ -67,8 +67,8 @@
                                     <constraint firstAttribute="width" constant="315" id="zft-Cc-hC3"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guesses Left: 7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41w-jf-TBT">
-                                <rect key="frame" x="10" y="30" width="126" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guesses Left: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41w-jf-TBT">
+                                <rect key="frame" x="10" y="30" width="116.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -422,6 +422,32 @@
                         <outlet property="keyboardOutlet" destination="edE-X7-SRP" id="Oc8-BQ-2ht"/>
                         <outlet property="secretWordLabel" destination="s7N-5V-0hq" id="TSc-dy-FnV"/>
                         <outlet property="timeLabel" destination="wJg-Ea-HGc" id="75X-WU-feX"/>
+                        <outletCollection property="alphabets" destination="0Bz-Y4-TTf" collectionClass="NSMutableArray" id="qW6-UC-3Qr"/>
+                        <outletCollection property="alphabets" destination="8yN-fX-16R" collectionClass="NSMutableArray" id="fN1-Wl-tJW"/>
+                        <outletCollection property="alphabets" destination="PtX-7W-Wqp" collectionClass="NSMutableArray" id="vPa-v7-giA"/>
+                        <outletCollection property="alphabets" destination="8Er-LZ-jpc" collectionClass="NSMutableArray" id="18W-L4-FuC"/>
+                        <outletCollection property="alphabets" destination="c4z-fp-50K" collectionClass="NSMutableArray" id="dub-If-OSg"/>
+                        <outletCollection property="alphabets" destination="Y8o-vf-vPZ" collectionClass="NSMutableArray" id="Ior-Ov-1vY"/>
+                        <outletCollection property="alphabets" destination="9Lx-7R-leb" collectionClass="NSMutableArray" id="ELX-Pd-Szv"/>
+                        <outletCollection property="alphabets" destination="9O4-np-jFt" collectionClass="NSMutableArray" id="9BH-Se-wLF"/>
+                        <outletCollection property="alphabets" destination="2sh-KE-DRw" collectionClass="NSMutableArray" id="7Uj-rn-n7V"/>
+                        <outletCollection property="alphabets" destination="QTg-f3-FKc" collectionClass="NSMutableArray" id="BSM-da-Wm5"/>
+                        <outletCollection property="alphabets" destination="BD1-tA-lwz" collectionClass="NSMutableArray" id="982-UX-I1P"/>
+                        <outletCollection property="alphabets" destination="c3t-cc-9QR" collectionClass="NSMutableArray" id="oCH-rx-aM6"/>
+                        <outletCollection property="alphabets" destination="pl9-fd-V0R" collectionClass="NSMutableArray" id="6Gr-ia-ghW"/>
+                        <outletCollection property="alphabets" destination="yJP-0R-MrF" collectionClass="NSMutableArray" id="SgA-RL-Itn"/>
+                        <outletCollection property="alphabets" destination="od8-me-xNH" collectionClass="NSMutableArray" id="4C1-WK-Rvs"/>
+                        <outletCollection property="alphabets" destination="eSe-Wj-aJg" collectionClass="NSMutableArray" id="Y1e-xx-PzB"/>
+                        <outletCollection property="alphabets" destination="Xy6-Wj-XJD" collectionClass="NSMutableArray" id="uNV-i4-oyd"/>
+                        <outletCollection property="alphabets" destination="mle-Xy-Psu" collectionClass="NSMutableArray" id="haP-Lf-iuJ"/>
+                        <outletCollection property="alphabets" destination="Ygz-Zm-kRo" collectionClass="NSMutableArray" id="JaC-cT-8Ir"/>
+                        <outletCollection property="alphabets" destination="r2v-ey-FsC" collectionClass="NSMutableArray" id="RIV-LV-b0A"/>
+                        <outletCollection property="alphabets" destination="f6r-Zw-zKT" collectionClass="NSMutableArray" id="EAn-2p-Cl1"/>
+                        <outletCollection property="alphabets" destination="s8b-R4-XEd" collectionClass="NSMutableArray" id="IZT-SL-JgU"/>
+                        <outletCollection property="alphabets" destination="4VH-JO-TlQ" collectionClass="NSMutableArray" id="Xkx-uC-VSy"/>
+                        <outletCollection property="alphabets" destination="axB-sK-Hd5" collectionClass="NSMutableArray" id="U9T-U6-zeM"/>
+                        <outletCollection property="alphabets" destination="pkO-XZ-sna" collectionClass="NSMutableArray" id="rdz-cL-3tn"/>
+                        <outletCollection property="alphabets" destination="AR1-Ls-lbm" collectionClass="NSMutableArray" id="q5F-cW-HOy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

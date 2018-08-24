@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     var audioPlayer : AVAudioPlayer!
     
     var backgroundMusic: AVAudioPlayer? = {
-        guard let soundURL = Bundle.main.url(forResource: "The-Island-of-Dr-Sinister", withExtension: "mp3") else {
+        guard let soundURL = Bundle.main.url(forResource: "Trimmed Saw SoundTrack", withExtension: "mp3") else {
             return nil
         }
         do {
@@ -49,6 +49,9 @@ class ViewController: UIViewController {
     var randomIndex = Int(arc4random_uniform(UInt32(13)))   // Ideally 13 would be replaced with allFilms.count but that throws an error for some reason
     
     @IBOutlet weak var keyboardOutlet: UIStackView!
+    
+    
+    @IBOutlet var alphabets: [UIButton]!
     
     @IBOutlet weak var secretWordLabel: UILabel!
     
@@ -160,7 +163,12 @@ class ViewController: UIViewController {
         //        ToDo:
         //        for tag in lettersGuessedArray {
         //            keyboardOutlet.tag.backgroundColor = UIColor.white
-        //        }
+        //        }\
+        
+        for buttons in alphabets {
+            buttons.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            buttons.isEnabled = true
+        }
         
         timeLeft = 60
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
@@ -198,7 +206,7 @@ class ViewController: UIViewController {
         restartButton()
     }
     
-    var timeLeft : Double = 60
+    var timeLeft : Double = 5
     var timer = Timer()
     
     @objc func action() {
@@ -206,8 +214,9 @@ class ViewController: UIViewController {
         timeLeft -= 0.01
         let roundedTime = Double(round(100*timeLeft)/100)
         timeLabel.text = String(roundedTime)
+        print(roundedTime)
         
-        if roundedTime == 0 {
+        if roundedTime == 0.0 {
             timer.invalidate()
             timeLabel.text = "0.00"
         }
