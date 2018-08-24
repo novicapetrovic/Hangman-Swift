@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     var audioPlayer : AVAudioPlayer!
     
     var backgroundMusic: AVAudioPlayer? = {
-        guard let soundURL = Bundle.main.url(forResource: "Trimmed Saw Soundtrack", withExtension: "mp3") else {
+        guard let soundURL = Bundle.main.url(forResource: "The-Island-of-Dr-Sinister", withExtension: "mp3") else {
             return nil
         }
         do {
@@ -206,7 +206,6 @@ class ViewController: UIViewController {
         timeLeft -= 0.01
         let roundedTime = Double(round(100*timeLeft)/100)
         timeLabel.text = String(roundedTime)
-        print(roundedTime)
         
         if roundedTime == 0 {
             timer.invalidate()
