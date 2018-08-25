@@ -187,6 +187,7 @@ class ViewController: UIViewController {
             buttons.isEnabled = true
         }
         
+        timer.invalidate()
         timeLeft = Double(60 - winStreak)
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
         
