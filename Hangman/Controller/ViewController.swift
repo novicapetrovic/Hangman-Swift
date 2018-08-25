@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         print(firstFilm.secretWord)
         guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
         winStreakLabel.text = "Streak: \(winStreak)"
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
         
     }
     
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
 
     let allFilms = FilmBankClass()
     
-    var randomIndex = Int(arc4random_uniform(UInt32(13)))   // Ideally 13 would be replaced with allFilms.count but that throws an error for some reason
+    var randomIndex = Int(arc4random_uniform(UInt32(58)))   // Ideally 58 would be replaced with allFilms.count but that throws an error for some reason
     
     @IBOutlet weak var keyboardOutlet: UIStackView!
     
@@ -88,14 +88,11 @@ class ViewController: UIViewController {
     @IBAction func letterPressed(_ sender: UIButton) {
         
         let letterGuessed : Character = Character((sender.titleLabel?.text!)!)
-        
-        print(letterGuessed)
     
             if allFilms.listOfFilms[randomIndex].indexDictionary[letterGuessed] != nil {
                 playSound(guessTrue: 1)
                 sender.backgroundColor = UIColor.black
                 sender.isEnabled = false
-                print(allFilms.listOfFilms[randomIndex].indexDictionary[letterGuessed]!)
                 
                 for index in allFilms.listOfFilms[randomIndex].indexDictionary[letterGuessed]! {
                     secretWordLabel.text = replace(myString: secretWordLabel.text!, index as! Int, letterGuessed)
@@ -103,10 +100,9 @@ class ViewController: UIViewController {
                 
                 if secretWordLabel.text == allFilms.listOfFilms[randomIndex].secretWord {
                     playSound(guessTrue: 3)
-                    restartButton()
-                    print("You Win!")
                     winStreak += 1
-                    winStreakLabel.text = "Streak: \(winStreak)"
+                    restartForWin()
+                    print("You Win!")
                 }
                 
             } else {
@@ -163,8 +159,9 @@ class ViewController: UIViewController {
             buttons.isEnabled = true
         }
         
-        timeLeft = Double(60 - (winStreak * 2))
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
+        timer.invalidate()
+        timeLeft = 60
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
         
         keyboardOutlet.isUserInteractionEnabled = true
         
@@ -176,6 +173,32 @@ class ViewController: UIViewController {
         
         guessesLeft = 5
         winStreak = 0
+        winStreakLabel.text = "Streak: \(winStreak)"
+        guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
+        hangmanImage.image = nil
+        hangmanImage.backgroundColor = UIColor.black
+        
+    }
+    
+    func restartForWin() {
+        
+        for buttons in alphabets {
+            buttons.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            buttons.isEnabled = true
+        }
+        
+        timeLeft = Double(60 - winStreak)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
+        
+        keyboardOutlet.isUserInteractionEnabled = true
+        
+        randomIndex = Int(arc4random_uniform(UInt32(58)))
+        let firstFilm = allFilms.listOfFilms[randomIndex]
+        let firstFilmXXX = convertFilmToSecret(film: firstFilm.secretWord)
+        secretWordLabel.text = firstFilmXXX
+        print(firstFilm.secretWord)
+        
+        guessesLeft = 5
         winStreakLabel.text = "Streak: \(winStreak)"
         guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
         hangmanImage.image = nil
@@ -207,11 +230,12 @@ class ViewController: UIViewController {
     
     @objc func action() {
         
-        timeLeft -= 0.01
-        let roundedTime = Double(round(100*timeLeft)/100)
+        timeLeft -= 0.1
+        let roundedTime = Double(round(10*timeLeft)/10)
         timeLabel.text = String(roundedTime)
         
         if roundedTime == 0.0 {
+            keyboardOutlet.isUserInteractionEnabled = false
             timer.invalidate()
             timeLabel.text = "0.00"
         }
