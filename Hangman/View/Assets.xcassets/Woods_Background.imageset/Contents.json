@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "hangman1 transparent.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Woods_Background.jpeg",
       "scale" : "2x"
     },
     {

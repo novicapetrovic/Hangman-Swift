@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     var audioPlayer : AVAudioPlayer!
     
     var backgroundMusic: AVAudioPlayer? = {
-        guard let soundURL = Bundle.main.url(forResource: "Trimmed Saw SoundTrack", withExtension: "mp3") else {
+        guard let soundURL = Bundle.main.url(forResource: "The-Island-of-Dr-Sinister", withExtension: "mp3") else {
             return nil
         }
         do {
@@ -91,7 +91,7 @@ class ViewController: UIViewController {
     
             if allFilms.listOfFilms[randomIndex].indexDictionary[letterGuessed] != nil {
                 playSound(guessTrue: 1)
-                sender.backgroundColor = UIColor.black
+                sender.backgroundColor = UIColor.green
                 sender.isEnabled = false
                 
                 for index in allFilms.listOfFilms[randomIndex].indexDictionary[letterGuessed]! {
@@ -165,7 +165,7 @@ class ViewController: UIViewController {
         
         keyboardOutlet.isUserInteractionEnabled = true
         
-        randomIndex = Int(arc4random_uniform(UInt32(13)))
+        randomIndex = Int(arc4random_uniform(UInt32(58)))
         let firstFilm = allFilms.listOfFilms[randomIndex]
         let firstFilmXXX = convertFilmToSecret(film: firstFilm.secretWord)
         secretWordLabel.text = firstFilmXXX
@@ -176,7 +176,6 @@ class ViewController: UIViewController {
         winStreakLabel.text = "Streak: \(winStreak)"
         guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
         hangmanImage.image = nil
-        hangmanImage.backgroundColor = UIColor.black
         
     }
     
@@ -203,7 +202,6 @@ class ViewController: UIViewController {
         winStreakLabel.text = "Streak: \(winStreak)"
         guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
         hangmanImage.image = nil
-        hangmanImage.backgroundColor = UIColor.black
         
     }
     

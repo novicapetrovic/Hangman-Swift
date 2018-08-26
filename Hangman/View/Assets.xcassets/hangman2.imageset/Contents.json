@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "hangman5 transparent.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "hangman5.png",
       "scale" : "2x"
     },
     {

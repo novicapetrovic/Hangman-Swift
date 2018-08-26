@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "hangman_title_image_transparent.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "hangman_title_image.jpg",
       "scale" : "2x"
     },
     {
