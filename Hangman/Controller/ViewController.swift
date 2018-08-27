@@ -11,11 +11,14 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    var randomIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         playBackgroundMusic()
         
+        randomIndex = createNonRepeatingRandomIndex()
         let firstFilm = allFilms.listOfFilms[randomIndex]
         let firstFilmXXX = convertFilmToSecret(film: firstFilm.secretWord)
         secretWordLabel.text = firstFilmXXX
@@ -23,7 +26,7 @@ class ViewController: UIViewController {
         guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
         winStreakLabel.text = "Streak: \(winStreak)"
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
-        
+    
     }
     
     var audioPlayer : AVAudioPlayer!
@@ -47,10 +50,26 @@ class ViewController: UIViewController {
 
     let allFilms = FilmBankClass()
     
-    var randomIndex = Int(arc4random_uniform(UInt32(58)))   // Ideally 58 would be replaced with allFilms.count but that throws an error for some reason
+    var randomIndexList = Array(0 ... 57)
+    
+    func createNonRepeatingRandomIndex() -> Int {
+        
+        var randomIndex2 = 0
+        
+        if randomIndexList.count == 0 {
+            randomIndexList = Array(0...57)
+            randomIndex2 = randomIndexList.randomItem()!
+            randomIndexList = self.randomIndexList.filter{$0 != randomIndex2}
+            return randomIndex2
+        } else {
+            randomIndex2 = randomIndexList.randomItem()!
+            randomIndexList = self.randomIndexList.filter{$0 != randomIndex2}
+            return randomIndex2
+        }
+        
+    }
     
     @IBOutlet weak var keyboardOutlet: UIStackView!
-    
     
     @IBOutlet weak var winStreakLabel: UILabel!
     
@@ -165,7 +184,7 @@ class ViewController: UIViewController {
         
         keyboardOutlet.isUserInteractionEnabled = true
         
-        randomIndex = Int(arc4random_uniform(UInt32(58)))
+        randomIndex = createNonRepeatingRandomIndex()
         let firstFilm = allFilms.listOfFilms[randomIndex]
         let firstFilmXXX = convertFilmToSecret(film: firstFilm.secretWord)
         secretWordLabel.text = firstFilmXXX
@@ -192,7 +211,7 @@ class ViewController: UIViewController {
         
         keyboardOutlet.isUserInteractionEnabled = true
         
-        randomIndex = Int(arc4random_uniform(UInt32(58)))
+        randomIndex = createNonRepeatingRandomIndex()
         let firstFilm = allFilms.listOfFilms[randomIndex]
         let firstFilmXXX = convertFilmToSecret(film: firstFilm.secretWord)
         secretWordLabel.text = firstFilmXXX
@@ -237,9 +256,17 @@ class ViewController: UIViewController {
             keyboardOutlet.isUserInteractionEnabled = false
             timer.invalidate()
             timeLabel.text = "0.00"
+            playSound(guessTrue: 2)
         }
     }
     
     
 }
 
+extension Array {
+    func randomItem() -> Element? {
+        if isEmpty { return nil }
+        let index = Int(arc4random_uniform(UInt32(self.count)))
+        return self[index]
+    }
+}

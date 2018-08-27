@@ -15,7 +15,6 @@
 		587A19C7212DA1FA00DABF54 /* Jigsaw Laugh 2017.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 587A19C6212DA1F900DABF54 /* Jigsaw Laugh 2017.mp3 */; };
 		587A19CB212EA95400DABF54 /* Correct Answer Sound Effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 587A19CA212EA95300DABF54 /* Correct Answer Sound Effect.mp3 */; };
 		587A19CF212F145800DABF54 /* IntoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587A19CE212F145800DABF54 /* IntoViewController.swift */; };
-		587A19D1212F1EDC00DABF54 /* Trimmed Saw SoundTrack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 587A19D0212F1EDB00DABF54 /* Trimmed Saw SoundTrack.mp3 */; };
 		5898C6A32129AE930067D784 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898C6A22129AE930067D784 /* AppDelegate.swift */; };
 		5898C6A52129AE930067D784 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898C6A42129AE930067D784 /* ViewController.swift */; };
 		5898C6A82129AE930067D784 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5898C6A62129AE930067D784 /* Main.storyboard */; };
@@ -33,7 +32,6 @@
 		587A19C6212DA1F900DABF54 /* Jigsaw Laugh 2017.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jigsaw Laugh 2017.mp3"; sourceTree = "<group>"; };
 		587A19CA212EA95300DABF54 /* Correct Answer Sound Effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Correct Answer Sound Effect.mp3"; sourceTree = "<group>"; };
 		587A19CE212F145800DABF54 /* IntoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntoViewController.swift; sourceTree = "<group>"; };
-		587A19D0212F1EDB00DABF54 /* Trimmed Saw SoundTrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Trimmed Saw SoundTrack.mp3"; sourceTree = "<group>"; };
 		5898C69F2129AE930067D784 /* Hangman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hangman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5898C6A22129AE930067D784 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5898C6A42129AE930067D784 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 		587A19C1212D909400DABF54 /* Sound Files */ = {
 			isa = PBXGroup;
 			children = (
-				587A19D0212F1EDB00DABF54 /* Trimmed Saw SoundTrack.mp3 */,
 				587A19BF212D907500DABF54 /* The-Island-of-Dr-Sinister.mp3 */,
 				587A19C4212D941300DABF54 /* Creepy-Roll-Over-2.mp3 */,
 				587A19C2212D940B00DABF54 /* Creepy_Percussion_8.mp3 */,
@@ -164,6 +161,7 @@
 				TargetAttributes = {
 					5898C69E2129AE930067D784 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -193,7 +191,6 @@
 				587A19C3212D940B00DABF54 /* Creepy_Percussion_8.mp3 in Resources */,
 				5898C6AD2129AE950067D784 /* LaunchScreen.storyboard in Resources */,
 				587A19C0212D907500DABF54 /* The-Island-of-Dr-Sinister.mp3 in Resources */,
-				587A19D1212F1EDC00DABF54 /* Trimmed Saw SoundTrack.mp3 in Resources */,
 				587A19C7212DA1FA00DABF54 /* Jigsaw Laugh 2017.mp3 in Resources */,
 				587A19CB212EA95400DABF54 /* Correct Answer Sound Effect.mp3 in Resources */,
 				581839582129D086004FC7B9 /* Default-568h@2x.png in Resources */,
@@ -367,7 +364,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.novicapetrovic.Hangman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -385,7 +382,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.novicapetrovic.Hangman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
