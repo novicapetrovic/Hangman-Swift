@@ -23,6 +23,7 @@
 		5898C6AA2129AE950067D784 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5898C6A92129AE950067D784 /* Assets.xcassets */; };
 		5898C6AD2129AE950067D784 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5898C6AB2129AE950067D784 /* LaunchScreen.storyboard */; };
 		5898C6B72129B0C10067D784 /* SecretWordClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898C6B62129B0C10067D784 /* SecretWordClass.swift */; };
+		5D86D97D214025B7002D08E9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D86D97C214025B7002D08E9 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		5898C6A92129AE950067D784 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5898C6AC2129AE950067D784 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5898C6B62129B0C10067D784 /* SecretWordClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretWordClass.swift; sourceTree = "<group>"; };
+		5D86D97C214025B7002D08E9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +131,9 @@
 		5898C6BB2129B2290067D784 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5898C6AB2129AE950067D784 /* LaunchScreen.storyboard */,
+				5D86D97C214025B7002D08E9 /* Info.plist */,
 				584ED0952136B358007C5807 /* Property List.plist */,
+				5898C6AB2129AE950067D784 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				581839582129D086004FC7B9 /* Default-568h@2x.png in Resources */,
 				5898C6AA2129AE950067D784 /* Assets.xcassets in Resources */,
 				587A19C5212D941300DABF54 /* Creepy-Roll-Over-2.mp3 in Resources */,
+				5D86D97D214025B7002D08E9 /* Info.plist in Resources */,
 				584ED0962136B358007C5807 /* Property List.plist in Resources */,
 				5898C6A82129AE930067D784 /* Main.storyboard in Resources */,
 			);
@@ -364,13 +368,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 526URZ72RD;
+				DEVELOPMENT_TEAM = XV22KR8823;
 				INFOPLIST_FILE = Hangman/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.novicapetrovic.Hangman;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StormKop.Hangman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -382,13 +386,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 526URZ72RD;
+				DEVELOPMENT_TEAM = XV22KR8823;
 				INFOPLIST_FILE = Hangman/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.novicapetrovic.Hangman;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StormKop.Hangman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

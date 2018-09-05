@@ -6,6 +6,12 @@
 //  Copyright © 2018 Novica Petrovic. All rights reserved.
 //
 
+
+// change to title
+// run game so that when category selected game picks a work from that category
+// status bar font colour to white
+// hunt down for missing info.plist
+
 import Foundation
 
 class SecretWordClass {
