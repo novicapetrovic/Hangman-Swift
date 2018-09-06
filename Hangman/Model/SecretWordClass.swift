@@ -6,6 +6,10 @@
 //  Copyright © 2018 Novica Petrovic. All rights reserved.
 //
 
+
+// run game so that when category selected game picks a work from that category
+// status bar font colour to white
+
 import Foundation
 
 class SecretWordClass {
@@ -14,9 +18,9 @@ class SecretWordClass {
     
     var indexDictionary : [Character : NSMutableArray]
     
-    init(film: String) {
+    init(title: String) {
         
-        secretWord = film
+        secretWord = title
         
         func createDictionary(film: String) -> [Character : NSMutableArray] {
             
@@ -24,7 +28,7 @@ class SecretWordClass {
             
             var index = 0
             
-            for letter in film {
+            for letter in title {
                 
                 if myDict[letter] == nil {
                     myDict[letter] = [index]
