@@ -9,23 +9,30 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
     
     var randomIndex = 0
+    var selectedCategory: Category?
+    var categoryTitlesArray: [SecretWordClass]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //TODO:- Retrieves all categories
+        if let category = selectedCategory?.name {
+            categoryTitlesArray = DataService.instance.getAllTitles(forCategory: category)
+        }
+        
         playBackgroundMusic()
         
         randomIndex = createNonRepeatingRandomIndex()
-        let firstFilm = allFilms.listOfFilms[randomIndex]
-        let firstFilmXXX = convertFilmToSecret(film: firstFilm.secretWord)
+        let firstFilm = categoryTitlesArray[randomIndex]
+        let firstFilmXXX = convertTitleToSecret(film: firstFilm.secretWord)
         secretWordLabel.text = firstFilmXXX
         print(firstFilm.secretWord)
         guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
         winStreakLabel.text = "Streak: \(winStreak)"
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(GameViewController.action), userInfo: nil, repeats: true)
     
     }
     
@@ -47,8 +54,6 @@ class ViewController: UIViewController {
     func playBackgroundMusic() {
         backgroundMusic?.play()
     }
-
-    let allFilms = FilmBankClass()
     
     var randomIndexList = Array(0 ... 57)
     
@@ -84,7 +89,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     
     
-    func convertFilmToSecret(film: String) -> String {
+    func convertTitleToSecret(film: String) -> String {
         
         var XXX = ""
         
@@ -108,16 +113,16 @@ class ViewController: UIViewController {
         
         let letterGuessed : Character = Character((sender.titleLabel?.text!)!)
     
-            if allFilms.listOfFilms[randomIndex].indexDictionary[letterGuessed] != nil {
+            if categoryTitlesArray[randomIndex].indexDictionary[letterGuessed] != nil {
                 playSound(guessTrue: 1)
                 sender.backgroundColor = UIColor.green
                 sender.isEnabled = false
                 
-                for index in allFilms.listOfFilms[randomIndex].indexDictionary[letterGuessed]! {
+                for index in categoryTitlesArray[randomIndex].indexDictionary[letterGuessed]! {
                     secretWordLabel.text = replace(myString: secretWordLabel.text!, index as! Int, letterGuessed)
                 }
                 
-                if secretWordLabel.text == allFilms.listOfFilms[randomIndex].secretWord {
+                if secretWordLabel.text == categoryTitlesArray[randomIndex].secretWord {
                     playSound(guessTrue: 3)
                     winStreak += 1
                     restartForWin()
@@ -160,7 +165,7 @@ class ViewController: UIViewController {
                 count += 1
             }
         }
-        secretWordLabel.text = allFilms.listOfFilms[randomIndex].secretWord
+        secretWordLabel.text = categoryTitlesArray[randomIndex].secretWord
     }
     
     
@@ -180,13 +185,13 @@ class ViewController: UIViewController {
         
         timer.invalidate()
         timeLeft = 60
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(GameViewController.action), userInfo: nil, repeats: true)
         
         keyboardOutlet.isUserInteractionEnabled = true
         
         randomIndex = createNonRepeatingRandomIndex()
-        let firstFilm = allFilms.listOfFilms[randomIndex]
-        let firstFilmXXX = convertFilmToSecret(film: firstFilm.secretWord)
+        let firstFilm = categoryTitlesArray[randomIndex]
+        let firstFilmXXX = convertTitleToSecret(film: firstFilm.secretWord)
         secretWordLabel.text = firstFilmXXX
         print(firstFilm.secretWord)
         
@@ -207,13 +212,13 @@ class ViewController: UIViewController {
         
         timer.invalidate()
         timeLeft = Double(60 - winStreak)
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(GameViewController.action), userInfo: nil, repeats: true)
         
         keyboardOutlet.isUserInteractionEnabled = true
         
         randomIndex = createNonRepeatingRandomIndex()
-        let firstFilm = allFilms.listOfFilms[randomIndex]
-        let firstFilmXXX = convertFilmToSecret(film: firstFilm.secretWord)
+        let firstFilm = categoryTitlesArray[randomIndex]
+        let firstFilmXXX = convertTitleToSecret(film: firstFilm.secretWord)
         secretWordLabel.text = firstFilmXXX
         print(firstFilm.secretWord)
         

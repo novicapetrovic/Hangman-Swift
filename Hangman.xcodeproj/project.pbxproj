@@ -8,43 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		581839562129CEAF004FC7B9 /* FilmBankClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581839552129CEAF004FC7B9 /* FilmBankClass.swift */; };
-		581839582129D086004FC7B9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 581839572129D086004FC7B9 /* Default-568h@2x.png */; };
 		584ED0942135E17F007C5807 /* CountryBankClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584ED0932135E17F007C5807 /* CountryBankClass.swift */; };
-		584ED0962136B358007C5807 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 584ED0952136B358007C5807 /* Property List.plist */; };
 		587A19C0212D907500DABF54 /* The-Island-of-Dr-Sinister.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 587A19BF212D907500DABF54 /* The-Island-of-Dr-Sinister.mp3 */; };
 		587A19C3212D940B00DABF54 /* Creepy_Percussion_8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 587A19C2212D940B00DABF54 /* Creepy_Percussion_8.mp3 */; };
 		587A19C5212D941300DABF54 /* Creepy-Roll-Over-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 587A19C4212D941300DABF54 /* Creepy-Roll-Over-2.mp3 */; };
 		587A19C7212DA1FA00DABF54 /* Jigsaw Laugh 2017.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 587A19C6212DA1F900DABF54 /* Jigsaw Laugh 2017.mp3 */; };
 		587A19CB212EA95400DABF54 /* Correct Answer Sound Effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 587A19CA212EA95300DABF54 /* Correct Answer Sound Effect.mp3 */; };
-		587A19CF212F145800DABF54 /* IntoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587A19CE212F145800DABF54 /* IntoViewController.swift */; };
 		5898C6A32129AE930067D784 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898C6A22129AE930067D784 /* AppDelegate.swift */; };
-		5898C6A52129AE930067D784 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898C6A42129AE930067D784 /* ViewController.swift */; };
+		5898C6A52129AE930067D784 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898C6A42129AE930067D784 /* GameViewController.swift */; };
 		5898C6A82129AE930067D784 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5898C6A62129AE930067D784 /* Main.storyboard */; };
 		5898C6AA2129AE950067D784 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5898C6A92129AE950067D784 /* Assets.xcassets */; };
 		5898C6AD2129AE950067D784 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5898C6AB2129AE950067D784 /* LaunchScreen.storyboard */; };
 		5898C6B72129B0C10067D784 /* SecretWordClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898C6B62129B0C10067D784 /* SecretWordClass.swift */; };
-		5D86D97D214025B7002D08E9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D86D97C214025B7002D08E9 /* Info.plist */; };
+		5D16E3A82140A91300EFBE69 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D16E3A72140A91300EFBE69 /* HomeViewController.swift */; };
+		5D1B2D1921449EEF00F0DECE /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B2D1821449EEF00F0DECE /* DataService.swift */; };
+		5D1B2D1B21449F1900F0DECE /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B2D1A21449F1900F0DECE /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		581839552129CEAF004FC7B9 /* FilmBankClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmBankClass.swift; sourceTree = "<group>"; };
-		581839572129D086004FC7B9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		584ED0932135E17F007C5807 /* CountryBankClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryBankClass.swift; sourceTree = "<group>"; };
-		584ED0952136B358007C5807 /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		587A19BF212D907500DABF54 /* The-Island-of-Dr-Sinister.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The-Island-of-Dr-Sinister.mp3"; sourceTree = "<group>"; };
 		587A19C2212D940B00DABF54 /* Creepy_Percussion_8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Creepy_Percussion_8.mp3; sourceTree = "<group>"; };
 		587A19C4212D941300DABF54 /* Creepy-Roll-Over-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Creepy-Roll-Over-2.mp3"; sourceTree = "<group>"; };
 		587A19C6212DA1F900DABF54 /* Jigsaw Laugh 2017.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jigsaw Laugh 2017.mp3"; sourceTree = "<group>"; };
 		587A19CA212EA95300DABF54 /* Correct Answer Sound Effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Correct Answer Sound Effect.mp3"; sourceTree = "<group>"; };
-		587A19CE212F145800DABF54 /* IntoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntoViewController.swift; sourceTree = "<group>"; };
 		5898C69F2129AE930067D784 /* Hangman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hangman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5898C6A22129AE930067D784 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5898C6A42129AE930067D784 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5898C6A42129AE930067D784 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		5898C6A72129AE930067D784 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5898C6A92129AE950067D784 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5898C6AC2129AE950067D784 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5898C6B62129B0C10067D784 /* SecretWordClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretWordClass.swift; sourceTree = "<group>"; };
-		5D86D97C214025B7002D08E9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D16E3A72140A91300EFBE69 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5D1B2D1821449EEF00F0DECE /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		5D1B2D1A21449F1900F0DECE /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		5D86D97E21402A9E002D08E9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +72,6 @@
 		5898C6962129AE930067D784 = {
 			isa = PBXGroup;
 			children = (
-				581839572129D086004FC7B9 /* Default-568h@2x.png */,
 				5898C6A12129AE930067D784 /* Hangman */,
 				5898C6A02129AE930067D784 /* Products */,
 			);
@@ -102,7 +100,9 @@
 		5898C6B82129B1BB0067D784 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5D1B2D1A21449F1900F0DECE /* Category.swift */,
 				5898C6B62129B0C10067D784 /* SecretWordClass.swift */,
+				5D1B2D1821449EEF00F0DECE /* DataService.swift */,
 				581839552129CEAF004FC7B9 /* FilmBankClass.swift */,
 				584ED0932135E17F007C5807 /* CountryBankClass.swift */,
 			);
@@ -113,8 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				5898C6A22129AE930067D784 /* AppDelegate.swift */,
-				587A19CE212F145800DABF54 /* IntoViewController.swift */,
-				5898C6A42129AE930067D784 /* ViewController.swift */,
+				5D16E3A72140A91300EFBE69 /* HomeViewController.swift */,
+				5898C6A42129AE930067D784 /* GameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -131,8 +131,7 @@
 		5898C6BB2129B2290067D784 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5D86D97C214025B7002D08E9 /* Info.plist */,
-				584ED0952136B358007C5807 /* Property List.plist */,
+				5D86D97E21402A9E002D08E9 /* Info.plist */,
 				5898C6AB2129AE950067D784 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -202,11 +201,8 @@
 				587A19C0212D907500DABF54 /* The-Island-of-Dr-Sinister.mp3 in Resources */,
 				587A19C7212DA1FA00DABF54 /* Jigsaw Laugh 2017.mp3 in Resources */,
 				587A19CB212EA95400DABF54 /* Correct Answer Sound Effect.mp3 in Resources */,
-				581839582129D086004FC7B9 /* Default-568h@2x.png in Resources */,
 				5898C6AA2129AE950067D784 /* Assets.xcassets in Resources */,
 				587A19C5212D941300DABF54 /* Creepy-Roll-Over-2.mp3 in Resources */,
-				5D86D97D214025B7002D08E9 /* Info.plist in Resources */,
-				584ED0962136B358007C5807 /* Property List.plist in Resources */,
 				5898C6A82129AE930067D784 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,12 +214,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				587A19CF212F145800DABF54 /* IntoViewController.swift in Sources */,
 				5898C6B72129B0C10067D784 /* SecretWordClass.swift in Sources */,
+				5D1B2D1921449EEF00F0DECE /* DataService.swift in Sources */,
 				581839562129CEAF004FC7B9 /* FilmBankClass.swift in Sources */,
-				5898C6A52129AE930067D784 /* ViewController.swift in Sources */,
+				5898C6A52129AE930067D784 /* GameViewController.swift in Sources */,
 				5898C6A32129AE930067D784 /* AppDelegate.swift in Sources */,
 				584ED0942135E17F007C5807 /* CountryBankClass.swift in Sources */,
+				5D16E3A82140A91300EFBE69 /* HomeViewController.swift in Sources */,
+				5D1B2D1B21449F1900F0DECE /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
