@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="4AB-8j-JQ0">
             <objects>
-                <viewController id="eS7-Sh-LlI" sceneMemberID="viewController">
+                <viewController id="eS7-Sh-LlI" customClass="HomeViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b1l-QY-uNh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="roC-vc-Cxl"/>
+                                    <action selector="filmButtonPressed:" destination="eS7-Sh-LlI" eventType="touchUpInside" id="397-oT-KKI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMr-vD-vmq">
@@ -47,7 +47,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="sAn-L3-aIg"/>
+                                    <action selector="countryButtonPressed:" destination="eS7-Sh-LlI" eventType="touchUpInside" id="H7L-VN-NJR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -60,15 +60,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ELK-JH-g4w"/>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="" id="MK1-sD-4bx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ba-T3-goC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-871.20000000000005" y="31.934032983508249"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameVC" id="BYZ-38-t0r" customClass="GameViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -516,7 +519,4 @@
         <image name="Woods_Background" width="1800" height="1200"/>
         <image name="hangman_title_image" width="800" height="130"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="sAn-L3-aIg"/>
-    </inferredMetricsTieBreakers>
 </document>

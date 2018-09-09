@@ -6,8 +6,7 @@
 //  Copyright © 2018 Novica Petrovic. All rights reserved.
 //
 
-
-// run game so that when category selected game picks a work from that category
+// run game so that when category selected game picks a word from that category
 // status bar font colour to white
 
 import Foundation
