@@ -21,6 +21,7 @@
 		5D16E3A82140A91300EFBE69 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D16E3A72140A91300EFBE69 /* HomeViewController.swift */; };
 		5D1B2D1921449EEF00F0DECE /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B2D1821449EEF00F0DECE /* DataService.swift */; };
 		5D1B2D1B21449F1900F0DECE /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B2D1A21449F1900F0DECE /* Category.swift */; };
+		5DD15259214F58300012C69A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD15258214F58300012C69A /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		5D1B2D1821449EEF00F0DECE /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		5D1B2D1A21449F1900F0DECE /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		5D86D97E21402A9E002D08E9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DD15258214F58300012C69A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				5D86D97E21402A9E002D08E9 /* Info.plist */,
+				5DD15258214F58300012C69A /* Constants.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				5D1B2D1921449EEF00F0DECE /* DataService.swift in Sources */,
 				5898C6A52129AE930067D784 /* GameViewController.swift in Sources */,
 				5898C6A32129AE930067D784 /* AppDelegate.swift in Sources */,
+				5DD15259214F58300012C69A /* Constants.swift in Sources */,
 				5D16E3A82140A91300EFBE69 /* HomeViewController.swift in Sources */,
 				5D1B2D1B21449F1900F0DECE /* Category.swift in Sources */,
 			);
