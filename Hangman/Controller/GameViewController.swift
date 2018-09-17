@@ -55,20 +55,19 @@ class GameViewController: UIViewController {
         backgroundMusic?.play()
     }
     
-    var randomIndexList = Array(0 ... 57)
-    
     func createNonRepeatingRandomIndex() -> Int {
         
         var randomIndex2 = 0
+        var randomIndexList = [Int]()
         
         if randomIndexList.count == 0 {
-            randomIndexList = Array(0...57)
+            randomIndexList = Array(0...categoryTitlesArray.count)
             randomIndex2 = randomIndexList.randomItem()!
-            randomIndexList = self.randomIndexList.filter{$0 != randomIndex2}
+            randomIndexList = randomIndexList.filter{$0 != randomIndex2}
             return randomIndex2
         } else {
             randomIndex2 = randomIndexList.randomItem()!
-            randomIndexList = self.randomIndexList.filter{$0 != randomIndex2}
+            randomIndexList = randomIndexList.filter{$0 != randomIndex2}
             return randomIndex2
         }
         
@@ -265,6 +264,10 @@ class GameViewController: UIViewController {
         }
     }
     
+    // Set status bar to white
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
 }
 
