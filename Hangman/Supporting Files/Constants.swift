@@ -25,7 +25,7 @@ public let sound2 = "Jigsaw Laugh 2017"
 public let sound3 = "Correct Answer Sound Effect"
 
 //MARK:- Background Music
-public let background_Music = "The-Island-of-Dr-Sinister"
+public let inGameMusic = "The-Island-of-Dr-Sinister"
 
 //MARK:- Extension
 public let mp3 = "mp3"

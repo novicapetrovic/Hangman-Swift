@@ -43,7 +43,7 @@ class GameViewController: UIViewController {
         if let category = selectedCategory?.name {
             categoryTitlesArray = DataService.instance.getAllTitles(forCategory: category)
         }
-    
+        startGame()
     }
     
     //MARK:- IBAction
@@ -100,7 +100,6 @@ class GameViewController: UIViewController {
     //MARK:- Function
     
     //MARK:- Start game
-    
     func startGame() {
         
         playBackgroundMusic()
@@ -117,7 +116,7 @@ class GameViewController: UIViewController {
     
     //MARK: Background music
     var backgroundMusic: AVAudioPlayer? = {
-        guard let soundURL = Bundle.main.url(forResource: background_Music, withExtension: mp3) else {
+        guard let soundURL = Bundle.main.url(forResource: inGameMusic, withExtension: mp3) else {
             return nil
         }
         do {
