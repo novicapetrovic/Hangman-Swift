@@ -37,4 +37,9 @@ class HomeViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
+    //MARK:- Set status bar to white
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
 }

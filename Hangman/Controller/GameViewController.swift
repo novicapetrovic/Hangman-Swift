@@ -11,17 +11,96 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     
-    var randomIndex = 0
+    //MARK:- Variable and Constant
     var selectedCategory: Category?
     var categoryTitlesArray: [SecretWordClass]!
     
+    var audioPlayer : AVAudioPlayer!
+    var timer = Timer()
+    
+    var randomIndex = 0
+    var guessesLeft : Int = 5
+    var winStreak : Int = 0
+    var timeLeft : Double = 60
+    
+    let imagesArray = [hangman0, hangman1, hangman2, hangman3, hangman4, hangman5, hangman6]
+    let soundArray = ["Creepy_Percussion_8", "Creepy-Roll-Over-2", "Jigsaw Laugh 2017", "Correct Answer Sound Effect"]
+    
+    //MARK:- IBOutlet
+    @IBOutlet weak var keyboardOutlet: UIStackView!
+    @IBOutlet weak var winStreakLabel: UILabel!
+    @IBOutlet var alphabets: [UIButton]!
+    @IBOutlet weak var secretWordLabel: UILabel!
+    @IBOutlet weak var hangmanImage: UIImageView!
+    @IBOutlet weak var guessesLeftButton: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    //MARK:- viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //TODO:- Retrieves all categories
+        //TODO: Retrieves all categories
         if let category = selectedCategory?.name {
             categoryTitlesArray = DataService.instance.getAllTitles(forCategory: category)
         }
+        startGame()
+    }
+    
+    //MARK:- IBAction
+    
+    //MARK: Letter pressed
+    @IBAction func letterPressed(_ sender: UIButton) {
+        
+        let letterGuessed : Character = Character((sender.titleLabel?.text!)!)
+        
+        if categoryTitlesArray[randomIndex].indexDictionary[letterGuessed] != nil {
+            playSound(guessTrue: 1)
+            sender.backgroundColor = UIColor.green
+            sender.isEnabled = false
+            
+            for index in categoryTitlesArray[randomIndex].indexDictionary[letterGuessed]! {
+                secretWordLabel.text = replace(myString: secretWordLabel.text!, index as! Int, letterGuessed)
+            }
+            
+            if secretWordLabel.text == categoryTitlesArray[randomIndex].secretWord {
+                playSound(guessTrue: 3)
+                winStreak += 1
+                restartForWin()
+                print("You Win!")
+            }
+            
+        } else {
+            guessesLeft -= 1
+            sender.backgroundColor = UIColor.red
+            sender.isEnabled = false
+            
+            if guessesLeft == 0 {
+                
+                keyboardOutlet.isUserInteractionEnabled = false
+                print("You Lose!")
+                winStreak = 0
+                playSound(guessTrue: 2)
+                guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
+                hangmanImage.image = UIImage(named: imagesArray[guessesLeft])
+                revealSecretWord()
+                timer.invalidate()
+            } else {
+                playSound(guessTrue: 0)
+                guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
+                hangmanImage.image = UIImage(named: imagesArray[guessesLeft])
+            }
+        }
+    }
+    
+    //MARK: Restart button
+    @IBAction func restartButtonClicked(_ sender: UIButton) {
+        restartGame()
+    }
+    
+    //MARK:- Function
+    
+    //MARK:- Start game
+    func startGame() {
         
         playBackgroundMusic()
         
@@ -33,13 +112,11 @@ class GameViewController: UIViewController {
         guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
         winStreakLabel.text = "Streak: \(winStreak)"
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(GameViewController.action), userInfo: nil, repeats: true)
-    
     }
     
-    var audioPlayer : AVAudioPlayer!
-    
+    //MARK: Background music
     var backgroundMusic: AVAudioPlayer? = {
-        guard let soundURL = Bundle.main.url(forResource: "The-Island-of-Dr-Sinister", withExtension: "mp3") else {
+        guard let soundURL = Bundle.main.url(forResource: inGameMusic, withExtension: mp3) else {
             return nil
         }
         do {
@@ -55,40 +132,26 @@ class GameViewController: UIViewController {
         backgroundMusic?.play()
     }
     
-    var randomIndexList = Array(0 ... 57)
-    
+    //MARK: Create non-repeating random index
     func createNonRepeatingRandomIndex() -> Int {
         
         var randomIndex2 = 0
+        var randomIndexList = [Int]()
         
         if randomIndexList.count == 0 {
-            randomIndexList = Array(0...57)
+            randomIndexList = Array(0...categoryTitlesArray.count)
             randomIndex2 = randomIndexList.randomItem()!
-            randomIndexList = self.randomIndexList.filter{$0 != randomIndex2}
+            randomIndexList = randomIndexList.filter{$0 != randomIndex2}
             return randomIndex2
         } else {
             randomIndex2 = randomIndexList.randomItem()!
-            randomIndexList = self.randomIndexList.filter{$0 != randomIndex2}
+            randomIndexList = randomIndexList.filter{$0 != randomIndex2}
             return randomIndex2
         }
         
     }
     
-    @IBOutlet weak var keyboardOutlet: UIStackView!
-    
-    @IBOutlet weak var winStreakLabel: UILabel!
-    
-    @IBOutlet var alphabets: [UIButton]!
-    
-    @IBOutlet weak var secretWordLabel: UILabel!
-    
-    @IBOutlet weak var hangmanImage: UIImageView!
-    
-    @IBOutlet weak var guessesLeftButton: UILabel!
-
-    @IBOutlet weak var timeLabel: UILabel!
-    
-    
+    //MARK: Convert title to secret
     func convertTitleToSecret(film: String) -> String {
         
         var XXX = ""
@@ -103,55 +166,7 @@ class GameViewController: UIViewController {
         return XXX
     }
     
-    var guessesLeft : Int = 5
-    
-    let imagesArray = ["hangman0", "hangman1", "hangman2", "hangman3", "hangman4", "hangman5", "hangman6"]
-    
-    var winStreak : Int = 0
-    
-    @IBAction func letterPressed(_ sender: UIButton) {
-        
-        let letterGuessed : Character = Character((sender.titleLabel?.text!)!)
-    
-            if categoryTitlesArray[randomIndex].indexDictionary[letterGuessed] != nil {
-                playSound(guessTrue: 1)
-                sender.backgroundColor = UIColor.green
-                sender.isEnabled = false
-                
-                for index in categoryTitlesArray[randomIndex].indexDictionary[letterGuessed]! {
-                    secretWordLabel.text = replace(myString: secretWordLabel.text!, index as! Int, letterGuessed)
-                }
-                
-                if secretWordLabel.text == categoryTitlesArray[randomIndex].secretWord {
-                    playSound(guessTrue: 3)
-                    winStreak += 1
-                    restartForWin()
-                    print("You Win!")
-                }
-                
-            } else {
-                guessesLeft -= 1
-                sender.backgroundColor = UIColor.red
-                sender.isEnabled = false
-                
-                if guessesLeft == 0 {
-                    
-                    keyboardOutlet.isUserInteractionEnabled = false
-                    print("You Lose!")
-                    winStreak = 0
-                    playSound(guessTrue: 2)
-                    guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
-                    hangmanImage.image = UIImage(named: imagesArray[guessesLeft])
-                    revealSecretWord()
-                    timer.invalidate()
-                } else {
-                    playSound(guessTrue: 0)
-                    guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
-                    hangmanImage.image = UIImage(named: imagesArray[guessesLeft])
-                }
-        }
-    }
-
+    //MARK: Reveal secret word
     func revealSecretWord() {
         
         var indexArray : [Int] = []
@@ -168,7 +183,7 @@ class GameViewController: UIViewController {
         secretWordLabel.text = categoryTitlesArray[randomIndex].secretWord
     }
     
-    
+    //MARK: Replace
     func replace(myString: String, _ index: Int, _ newChar: Character) -> String {
         var chars = Array(myString)     // gets an array of characters
         chars[index] = newChar
@@ -176,7 +191,8 @@ class GameViewController: UIViewController {
         return modifiedString
     }
     
-    func restartButton() {
+    //MARK: Restart game
+    func restartGame() {
         
         for buttons in alphabets {
             buttons.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -203,6 +219,7 @@ class GameViewController: UIViewController {
         
     }
     
+    //MARK: Restart for win
     func restartForWin() {
         
         for buttons in alphabets {
@@ -229,11 +246,10 @@ class GameViewController: UIViewController {
         
     }
     
-    var soundArray = ["Creepy_Percussion_8", "Creepy-Roll-Over-2", "Jigsaw Laugh 2017", "Correct Answer Sound Effect"]
-    
+    //MARK: Play sound
     func playSound(guessTrue: Int) {
         
-        let soundURL = Bundle.main.url(forResource: soundArray[guessTrue], withExtension: "mp3")
+        let soundURL = Bundle.main.url(forResource: soundArray[guessTrue], withExtension: mp3)
         
         do{
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
@@ -244,13 +260,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    @IBAction func restartButtonClicked(_ sender: UIButton) {
-        restartButton()
-    }
-    
-    var timeLeft : Double = 60
-    var timer = Timer()
-    
+    //MARK: Action
     @objc func action() {
         
         timeLeft -= 0.1
@@ -265,9 +275,14 @@ class GameViewController: UIViewController {
         }
     }
     
+    // Set status bar to white
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
 }
 
+//MARK:- Array
 extension Array {
     func randomItem() -> Element? {
         if isEmpty { return nil }
