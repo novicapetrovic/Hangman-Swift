@@ -24,7 +24,6 @@ class GameViewController: UIViewController {
     var timeLeft : Double = 60
     
     let imagesArray = [hangman0, hangman1, hangman2, hangman3, hangman4, hangman5, hangman6]
-    let soundArray = [correctTile, wrongTile, gameOverSound, correctAnswerSound]
     
     //MARK:- IBOutlet
     @IBOutlet weak var keyboardOutlet: UIStackView!
@@ -54,7 +53,7 @@ class GameViewController: UIViewController {
         let letterGuessed : Character = Character((sender.titleLabel?.text!)!)
         
         if categoryTitlesArray[randomIndex].indexDictionary[letterGuessed] != nil {
-            playSound(guessTrue: 1)
+            playSound(playSound: wrongTile)
             sender.backgroundColor = UIColor.green
             sender.isEnabled = false
             
@@ -63,7 +62,7 @@ class GameViewController: UIViewController {
             }
             
             if secretWordLabel.text == categoryTitlesArray[randomIndex].secretWord {
-                playSound(guessTrue: 3)
+                playSound(playSound: correctAnswerSound)
                 winStreak += 1
                 restartForWin()
                 print("You Win!")
@@ -79,13 +78,13 @@ class GameViewController: UIViewController {
                 keyboardOutlet.isUserInteractionEnabled = false
                 print("You Lose!")
                 winStreak = 0
-                playSound(guessTrue: 2)
+                playSound(playSound: gameOverSound)
                 guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
                 hangmanImage.image = UIImage(named: imagesArray[guessesLeft])
                 revealSecretWord()
                 timer.invalidate()
             } else {
-                playSound(guessTrue: 0)
+                playSound(playSound: correctTile)
                 guessesLeftButton.text = "Guesses Left: \(guessesLeft)"
                 hangmanImage.image = UIImage(named: imagesArray[guessesLeft])
             }
@@ -247,9 +246,9 @@ class GameViewController: UIViewController {
     }
     
     //MARK: Play sound
-    func playSound(guessTrue: Int) {
+    func playSound(playSound: String) {
         
-        let soundURL = Bundle.main.url(forResource: soundArray[guessTrue], withExtension: mp3)
+        let soundURL = Bundle.main.url(forResource: playSound, withExtension: mp3)
         
         do{
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
@@ -271,7 +270,7 @@ class GameViewController: UIViewController {
             keyboardOutlet.isUserInteractionEnabled = false
             timer.invalidate()
             timeLabel.text = "0.00"
-            playSound(guessTrue: 2)
+            playSound(playSound: gameOverSound)
         }
     }
     
