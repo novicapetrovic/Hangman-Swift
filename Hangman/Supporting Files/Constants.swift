@@ -24,13 +24,6 @@ public let wrongTile = "Creepy-Roll-Over-2"
 public let gameOverSound = "Jigsaw Laugh 2017"
 public let correctAnswerSound = "Correct Answer Sound Effect"
 
-enum InGameSoundReference: String {
-    case correctTile
-    case wrongTile
-    case gameOverSound
-    case correctAnswerSound
-}
-
 //MARK:- Background Music
 public let inGameMusic = "The-Island-of-Dr-Sinister"
 
