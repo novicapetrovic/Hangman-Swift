@@ -98,7 +98,7 @@ class GameViewController: UIViewController {
     
     //MARK:- Function
     
-    //MARK:- Start game
+    //MARK: Start game
     func startGame() {
         
         playBackgroundMusic()
@@ -138,13 +138,15 @@ class GameViewController: UIViewController {
         var randomIndexList = [Int]()
         
         if randomIndexList.count == 0 {
-            randomIndexList = Array(0...categoryTitlesArray.count)
+            randomIndexList = Array(0...categoryTitlesArray.count-1)
             randomIndex2 = randomIndexList.randomItem()!
             randomIndexList = randomIndexList.filter{$0 != randomIndex2}
+            print(randomIndex2)
             return randomIndex2
         } else {
             randomIndex2 = randomIndexList.randomItem()!
             randomIndexList = randomIndexList.filter{$0 != randomIndex2}
+            print(randomIndex2)
             return randomIndex2
         }
         
