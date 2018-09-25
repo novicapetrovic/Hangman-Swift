@@ -24,7 +24,7 @@ class GameViewController: UIViewController {
     var timeLeft : Double = 60
     
     let imagesArray = [hangman0, hangman1, hangman2, hangman3, hangman4, hangman5, hangman6]
-    let soundArray = ["Creepy_Percussion_8", "Creepy-Roll-Over-2", "Jigsaw Laugh 2017", "Correct Answer Sound Effect"]
+    let soundArray = [correctTile, wrongTile, gameOverSound, correctAnswerSound]
     
     //MARK:- IBOutlet
     @IBOutlet weak var keyboardOutlet: UIStackView!
