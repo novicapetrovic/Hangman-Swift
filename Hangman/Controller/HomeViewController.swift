@@ -17,7 +17,6 @@ class HomeViewController: UIViewController {
         
         //TODO:- Retrieve all categories
         allCategories = DataService.instance.getAllCategories()
-        
     }
     
     //MARK:- Starts game with Film category
@@ -41,5 +40,4 @@ class HomeViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
 }
