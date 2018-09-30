@@ -19,10 +19,10 @@ public let hangman5 = "hangman5"
 public let hangman6 = "hangman6"
 
 //MARK:- Sounds
-public let sound0 = "Creepy_Percussion_8"
-public let sound1 = "Creepy-Roll-Over-2"
-public let sound2 = "Jigsaw Laugh 2017"
-public let sound3 = "Correct Answer Sound Effect"
+public let correctTile = "Creepy_Percussion_8"
+public let wrongTile = "Creepy-Roll-Over-2"
+public let gameOverSound = "Jigsaw Laugh 2017"
+public let correctAnswerSound = "Correct Answer Sound Effect"
 
 //MARK:- Background Music
 public let inGameMusic = "The-Island-of-Dr-Sinister"
