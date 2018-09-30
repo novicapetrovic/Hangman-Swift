@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		58494D022157F40D00AA97BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58494D012157F40A00AA97BE /* Assets.xcassets */; };
-		587A19C0212D907500DABF54 /* The-Island-of-Dr-Sinister.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 587A19BF212D907500DABF54 /* The-Island-of-Dr-Sinister.mp3 */; };
 		587A19C3212D940B00DABF54 /* Creepy_Percussion_8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 587A19C2212D940B00DABF54 /* Creepy_Percussion_8.mp3 */; };
 		587A19C5212D941300DABF54 /* Creepy-Roll-Over-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 587A19C4212D941300DABF54 /* Creepy-Roll-Over-2.mp3 */; };
 		587A19C7212DA1FA00DABF54 /* Jigsaw Laugh 2017.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 587A19C6212DA1F900DABF54 /* Jigsaw Laugh 2017.mp3 */; };
@@ -18,6 +17,7 @@
 		5898C6A82129AE930067D784 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5898C6A62129AE930067D784 /* Main.storyboard */; };
 		5898C6AD2129AE950067D784 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5898C6AB2129AE950067D784 /* LaunchScreen.storyboard */; };
 		5898C6B72129B0C10067D784 /* SecretWordClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898C6B62129B0C10067D784 /* SecretWordClass.swift */; };
+		58FDF9A22161227800EAEBA9 /* The-Island-of-Dr-Sinister.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58FDF9A12161227800EAEBA9 /* The-Island-of-Dr-Sinister.mp3 */; };
 		5D16E3A82140A91300EFBE69 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D16E3A72140A91300EFBE69 /* HomeViewController.swift */; };
 		5D1B2D1921449EEF00F0DECE /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B2D1821449EEF00F0DECE /* DataService.swift */; };
 		5D1B2D1B21449F1900F0DECE /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B2D1A21449F1900F0DECE /* Category.swift */; };
@@ -26,7 +26,6 @@
 
 /* Begin PBXFileReference section */
 		58494D012157F40A00AA97BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		587A19BF212D907500DABF54 /* The-Island-of-Dr-Sinister.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The-Island-of-Dr-Sinister.mp3"; sourceTree = "<group>"; };
 		587A19C2212D940B00DABF54 /* Creepy_Percussion_8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Creepy_Percussion_8.mp3; sourceTree = "<group>"; };
 		587A19C4212D941300DABF54 /* Creepy-Roll-Over-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Creepy-Roll-Over-2.mp3"; sourceTree = "<group>"; };
 		587A19C6212DA1F900DABF54 /* Jigsaw Laugh 2017.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jigsaw Laugh 2017.mp3"; sourceTree = "<group>"; };
@@ -37,6 +36,7 @@
 		5898C6A72129AE930067D784 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5898C6AC2129AE950067D784 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5898C6B62129B0C10067D784 /* SecretWordClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretWordClass.swift; sourceTree = "<group>"; };
+		58FDF9A12161227800EAEBA9 /* The-Island-of-Dr-Sinister.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The-Island-of-Dr-Sinister.mp3"; sourceTree = "<group>"; };
 		5D16E3A72140A91300EFBE69 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5D1B2D1821449EEF00F0DECE /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		5D1B2D1A21449F1900F0DECE /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 		587A19C1212D909400DABF54 /* Sound Files */ = {
 			isa = PBXGroup;
 			children = (
-				587A19BF212D907500DABF54 /* The-Island-of-Dr-Sinister.mp3 */,
+				58FDF9A12161227800EAEBA9 /* The-Island-of-Dr-Sinister.mp3 */,
 				587A19C4212D941300DABF54 /* Creepy-Roll-Over-2.mp3 */,
 				587A19C2212D940B00DABF54 /* Creepy_Percussion_8.mp3 */,
 				587A19C6212DA1F900DABF54 /* Jigsaw Laugh 2017.mp3 */,
@@ -195,12 +195,12 @@
 			files = (
 				587A19C3212D940B00DABF54 /* Creepy_Percussion_8.mp3 in Resources */,
 				5898C6AD2129AE950067D784 /* LaunchScreen.storyboard in Resources */,
-				587A19C0212D907500DABF54 /* The-Island-of-Dr-Sinister.mp3 in Resources */,
 				587A19C7212DA1FA00DABF54 /* Jigsaw Laugh 2017.mp3 in Resources */,
 				587A19CB212EA95400DABF54 /* Correct Answer Sound Effect.mp3 in Resources */,
 				587A19C5212D941300DABF54 /* Creepy-Roll-Over-2.mp3 in Resources */,
 				58494D022157F40D00AA97BE /* Assets.xcassets in Resources */,
 				5898C6A82129AE930067D784 /* Main.storyboard in Resources */,
+				58FDF9A22161227800EAEBA9 /* The-Island-of-Dr-Sinister.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
